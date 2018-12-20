@@ -29,9 +29,8 @@ def adversify(i):
     grads = K.gradients(scc(y, model.output), model.inputs)
     func = K.function(model.inputs + [y, K.learning_phase()], grads)
     
-    for i in range(50):
-        out = func([np.reshape(c, (1,1,28,28)), np.reshape(y_test[i], (1,10)), 0])
-        c -= 0.2*out[0][0]
+    out = func([np.reshape(c, (1,1,28,28)), np.reshape(y_test[i], (1,10)), 0])
+    c += 0.05*np.sign(out[0][0])
         
     return c
 
