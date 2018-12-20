@@ -1,2 +1,1 @@
-# ISLR-Python
-Introduction to Statistical Learning, implemented in Python
+# Adversarial attacks on resnet model.
